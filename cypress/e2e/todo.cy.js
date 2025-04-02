@@ -1,4 +1,6 @@
 describe('agregar tareas', () => {
+  
+
   it('agregar una tarea a la lista', () => {
     cy.visit('https://todomvc.com/examples/react/dist/')
     cy.get('[data-testid="text-input"]').type("comprar leche{enter}")
@@ -28,9 +30,10 @@ describe('agregar tareas', () => {
     cy.visit('https://todomvc.com/examples/react/dist/')
     cy.get('[data-testid="text-input"]').type("comprar leche{enter}")
     cy.get('[data-testid="todo-item-label"]').should("contain", "comprar leche")
-    cy.get('[data-testid="todo-item-label"]').click().click()
-    cy.get('[data-testid="text-input"]').clear().type("sacar al perro{enter}")
-    cy.get(':nth-child(2) > .view > [data-testid="todo-item-label"]').should("contain", "sacar al perro")
+    cy.get('[data-testid="todo-item-label"]').dblclick()
+    cy.get('.view > .input-container > [data-testid="text-input"]').clear().type("sacar al perro{enter}")
+    cy.get('[data-testid="todo-item-label"]').should("contain", "sacar al perro")
+    
       
         })
   it('eliminar una tarea de la lista', () => {
